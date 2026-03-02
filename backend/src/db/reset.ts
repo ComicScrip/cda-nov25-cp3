@@ -1,6 +1,6 @@
-import db, { clearDB } from "./index";
 import { Article } from "../entities/Article";
 import { Category } from "../entities/Category";
+import db, { clearDB } from "./index";
 
 async function main() {
   await db.initialize();
@@ -15,7 +15,7 @@ async function main() {
   const node = Category.create({ name: "Node.js" });
   await node.save();
 
-const articles = [
+  const articles = [
     {
       title: "A Complete Guide to React Hooks",
       body: `React Hooks revolutionized how we write React components, introduced in React 16.8 to allow functional components to use state and lifecycle features previously only available in class components. The useState hook is the most fundamental, allowing you to add state to functional components by declaring state variables that persist across renders. When you call useState, it returns an array with the current state value and a function to update it, enabling you to trigger re-renders when data changes.
@@ -30,7 +30,8 @@ The Rules of Hooks are essential to follow: only call hooks from React function 
 
 Additional hooks like useReducer offer an alternative to useState for complex state logic, especially when state transitions depend on previous values or involve multiple sub-values. useMemo and useCallback optimize performance by memoizing expensive computations and callback functions. useRef creates mutable references that persist across renders without causing re-renders, perfect for accessing DOM elements or storing previous values. These advanced hooks give you fine-grained control over component behavior and performance.`,
       category: react,
-      mainPictureUrl: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&h=400&fit=crop",
+      mainPictureUrl:
+        "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&h=400&fit=crop",
     },
     {
       title: "Understanding React Server Components",
@@ -46,7 +47,8 @@ Caching and revalidation strategies integrate naturally with Server Components. 
 
 The ecosystem around Server Components continues to evolve with frameworks like Next.js 13+ and Remix providing production-ready implementations. These frameworks handle the complexity of bundling, routing, and streaming while exposing simple APIs for developers. Understanding Server Components is becoming essential for modern React development, offering a path to better performance, simpler data fetching, and improved security architectures. The future of React lies in this server-first approach that optimizes for both developer experience and user performance.`,
       category: react,
-      mainPictureUrl: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=400&fit=crop",
+      mainPictureUrl:
+        "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=400&fit=crop",
     },
     {
       title: "State Management in React: Redux vs Context vs Zustand",
@@ -62,7 +64,8 @@ Other alternatives worth considering include Recoil for atomic state management 
 
 The best choice depends on your specific needs: Redux for complex applications requiring time-travel debugging and strict architectural patterns; Context for simple dependency injection and low-frequency updates; Zustand for most applications needing global state without Redux complexity; and specialized libraries for server state. Many modern applications use a combination - Context for themes and auth, Zustand for UI state, and TanStack Query for server data. Understanding these tradeoffs allows you to select the right tool for each job rather than defaulting to the most popular option.`,
       category: react,
-      mainPictureUrl: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop",
+      mainPictureUrl:
+        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop",
     },
     {
       title: "Mastering TypeScript Generics",
@@ -78,7 +81,8 @@ Generic classes and interfaces support object-oriented patterns with type safety
 
 Advanced patterns include generic type inference from function arguments, variadic tuple types for handling rest parameters, and template literal types for string manipulation. Understanding variance (covariant, contravariant, invariant) helps predict how generic types relate to their type parameters. The TypeScript standard library demonstrates sophisticated generic usage worth studying. Mastering generics transforms TypeScript from a simple type checker into a powerful tool for building robust, maintainable type systems that catch errors at compile time and enable confident refactoring of complex codebases.`,
       category: typescript,
-      mainPictureUrl: "https://images.unsplash.com/photo-1516116216624-53e697fedbea?w=800&h=400&fit=crop",
+      mainPictureUrl:
+        "https://images.unsplash.com/photo-1516116216624-53e697fedbea?w=800&h=400&fit=crop",
     },
     {
       title: "TypeScript Best Practices for 2024",
@@ -94,7 +98,8 @@ Leverage discriminated unions for modeling state machines and complex conditiona
 
 Modern TypeScript projects benefit from organized type definitions, typically in dedicated types.ts or interfaces.ts files or co-located with the code they describe. Use path mapping in tsconfig.json for clean imports. Leverage utility types like Partial, Required, Pick, Omit, and Record instead of redefining similar shapes. Enable exactOptionalPropertyTypes to distinguish between undefined and missing properties. Use satisfies for type checking without widening. These practices, combined with consistent naming conventions and comprehensive JSDoc comments, create a type-safe foundation that scales with your codebase and team size.`,
       category: typescript,
-      mainPictureUrl: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=400&fit=crop",
+      mainPictureUrl:
+        "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=400&fit=crop",
     },
     {
       title: "Using TypeScript Decorators in Node.js",
@@ -110,7 +115,8 @@ Decorator composition allows multiple decorators to be applied to a single decla
 
 While decorators remain experimental in TypeScript, they have proven so valuable that the TC39 committee is working on a standardized version with slightly different semantics. TypeScript 5.0 introduced support for the new decorators specification while maintaining backward compatibility with the legacy implementation. When using decorators, ensure proper metadata reflection setup, understand the execution order, and be mindful of the experimental status. For production applications, consider whether the productivity gains outweigh the risks of using experimental features, and have a migration plan if the standard changes significantly.`,
       category: typescript,
-      mainPictureUrl: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=400&fit=crop",
+      mainPictureUrl:
+        "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=400&fit=crop",
     },
     {
       title: "Building a REST API with Node.js and Express",
@@ -126,7 +132,8 @@ Validation ensures data integrity and prevents security vulnerabilities. Use lib
 
 Production readiness requires additional considerations: implement rate limiting to prevent abuse, use helmet middleware for security headers, enable compression for responses, and configure proper logging with structured formats like JSON. Database connections should use connection pooling, and sensitive configuration belongs in environment variables, never in code. Testing Express apps with supertest enables integration testing of routes without starting a real server. Document your API using OpenAPI/Swagger specifications that can be served alongside your application. Following these practices creates maintainable, secure, and scalable REST APIs that serve as robust backends for modern applications.`,
       category: node,
-      mainPictureUrl: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&h=400&fit=crop",
+      mainPictureUrl:
+        "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&h=400&fit=crop",
     },
     {
       title: "Implementing JWT Authentication in Node.js",
@@ -142,7 +149,8 @@ Security best practices include using strong signing algorithms (HS256 or RS256,
 
 Implementation patterns vary by framework. In Express, create authentication middleware that extracts and validates tokens, attaching user information to the request object. Handle token expiration gracefully by checking expiry before processing and returning 401 responses with clear error messages. For password reset flows, use time-limited signed tokens or one-time codes instead of JWTs. When logging out, invalidate refresh tokens server-side and clear cookies. Comprehensive JWT implementation requires attention to token lifecycle management, secure storage, and graceful handling of expiration scenarios across all client types including web, mobile, and API consumers.`,
       category: node,
-      mainPictureUrl: "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&h=400&fit=crop",
+      mainPictureUrl:
+        "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&h=400&fit=crop",
     },
     {
       title: "Optimizing Node.js Performance",
@@ -158,7 +166,8 @@ Profiling and monitoring identify performance bottlenecks. Use the built-in prof
 
 Code-level optimizations include using asynchronous operations exclusively, avoiding memory leaks by cleaning up event listeners and timers, and streaming large data instead of buffering in memory. Use fast JSON libraries like fast-json-stringify for serialization bottlenecks. Minimize dependencies and keep them updated for performance improvements. Implement gzip or brotli compression for API responses. Consider HTTP/2 for multiplexing and header compression. These techniques combined create Node.js applications that handle high traffic efficiently while maintaining responsiveness and stability under load.`,
       category: node,
-      mainPictureUrl: "https://images.unsplash.com/photo-1605379399642-870262d3d051?w=800&h=400&fit=crop",
+      mainPictureUrl:
+        "https://images.unsplash.com/photo-1605379399642-870262d3d051?w=800&h=400&fit=crop",
     },
     {
       title: "Building a GraphQL API with Apollo Server",
@@ -174,16 +183,23 @@ Context provides a way to share data across all resolvers, typically including t
 
 Subscriptions enable real-time updates through WebSockets, allowing clients to receive data when events occur. Implement pub/sub mechanisms using Redis or similar for scaling subscriptions across multiple server instances. Apollo Server integrates with various pub/sub libraries and transport layers. Error handling in GraphQL differs from REST - partial successes are possible where some fields return data while others error. Use custom error classes and formatError to provide consistent error responses. Add monitoring with Apollo Studio for schema validation, performance metrics, and field-level analytics. These capabilities make Apollo Server a comprehensive solution for building modern, type-safe APIs that evolve gracefully with your product requirements.`,
       category: node,
-      mainPictureUrl: "https://images.unsplash.com/photo-1614624532983-4ce03382d63d?w=800&h=400&fit=crop",
+      mainPictureUrl:
+        "https://images.unsplash.com/photo-1614624532983-4ce03382d63d?w=800&h=400&fit=crop",
     },
   ];
 
   function getRandomDate(start: Date, end: Date): Date {
-    return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
+    return new Date(
+      start.getTime() + Math.random() * (end.getTime() - start.getTime()),
+    );
   }
 
   const now = new Date();
-  const threeYearsAgo = new Date(now.getFullYear() - 3, now.getMonth(), now.getDate());
+  const threeYearsAgo = new Date(
+    now.getFullYear() - 3,
+    now.getMonth(),
+    now.getDate(),
+  );
 
   for (const articleData of articles) {
     const article = Article.create(articleData);
@@ -192,7 +208,7 @@ Subscriptions enable real-time updates through WebSockets, allowing clients to r
     article.updatedAt = getRandomDate(randomDate, now);
     await article.save();
   }
-  await db.destroy()
+  await db.destroy();
   console.log("done !");
 }
 

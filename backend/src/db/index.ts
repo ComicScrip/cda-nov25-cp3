@@ -1,8 +1,7 @@
 import { DataSource } from "typeorm";
-
-import env from "../env";
 import { Article } from "../entities/Article";
 import { Category } from "../entities/Category";
+import env from "../env";
 
 const db = new DataSource({
   type: "postgres",
@@ -12,7 +11,7 @@ const db = new DataSource({
   port: env.DB_PORT,
   database: env.DB_NAME,
   entities: [Article, Category],
-  synchronize: true
+  synchronize: true,
 });
 
 export async function clearDB() {
