@@ -1,0 +1,7 @@
+query GetArticles($title: String, $limit: Float, $offset: Float) {
+  articles(title: $title, limit: $limit, offset: $offset) {
+    id
+    title
+    mainPictureUrl
+  }
+}
