@@ -1,0 +1,14 @@
+query GetArticle($id: Float!) {
+  article(id: $id) {
+    id
+    title
+    body
+    mainPictureUrl
+    createdAt
+    updatedAt
+    category {
+      id
+      name
+    }
+  }
+}
